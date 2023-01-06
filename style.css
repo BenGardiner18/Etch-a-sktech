@@ -4,7 +4,9 @@
     width: 95vw;
     margin:0px;
 
-
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 body {
@@ -13,8 +15,16 @@ body {
     align-items: center;
 }
 
+.row {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;
+
+}
 
 .square {
-    background-color: "tan";
-    border:0px solid black;
+    border:0.1px dashed grey;
+    margin:0px;
+    flex-grow: 1;
 }

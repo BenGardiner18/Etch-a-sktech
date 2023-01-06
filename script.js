@@ -2,21 +2,34 @@
 let width = 40;
 let height = 20;
 
-const board = document.querySelector(".board");
-board.setAttribute(
-    "stye",
-    `display:grid; gap:5px; grid-template-columns:repeat(${width},1/${width}fr); grid-template-rows:repeat(${width},1/${width}fr`
-);
 
-for (let i = 1; i < width+1;i++) {
-    for (let j = 1; j < height+1; j ++) {
-        let square = document.createElement("div");
-        square.classList.add("square");
-        board.appendChild(square);
 
-        square.setAttribute(
-            "style",
-            `grid-column:${i}/${i+1}; grid-row:${j}/${j+1}`
-        );
+function createTable(width,height) {
+
+    // general board object
+    const board = document.querySelector(".board");
+    board.setAttribute(
+        "stye",
+        `display:grid; gap:5px; grid-template-columns:repeat(${width},1/${width}fr); grid-template-rows:repeat(${width},1/${width}fr`
+    );
+
+    
+    for (let i = 0; i < height; i ++) {
+        let row = document.createElement("div");
+        row.classList.add("row");
+        for (let j = 0; j < width; j++) {
+            let square = document.createElement("div");
+            square.classList.add("square");
+
+            square.addEventListener("click", () => {
+                square.style.backgroundColor = "red";
+            })
+
+            row.append(square);
+            
+        }
+        board.append(row);
     }
 }
+
+createTable(width,height);
