@@ -13,12 +13,20 @@ button.addEventListener("click", () => {
 
 });
 
+
+
 function getRandomColor() {
     let randRed = Math.random()*256;
     let randGreen = Math.random()*256;
     let randBlue = Math.random()*256;
 
     return [randRed,randGreen,randBlue];
+}
+
+function changeColor(e) {
+    if (e.type == 'mouseover' && e.type!='mousedown') return
+    color = getRandomColor();
+    this.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
 }
 
 function createTable(width,height) {
@@ -50,11 +58,8 @@ function createTable(width,height) {
                 let square = document.createElement("div");
                 square.classList.add("square");
     
-                square.addEventListener("click", () => {
-                    color = getRandomColor();
-                    square.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
-                })
-    
+                square.addEventListener("click", changeColor);
+
                 row.append(square);
                 
             }
