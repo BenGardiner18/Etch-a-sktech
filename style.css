@@ -1,6 +1,6 @@
 .board {
     border: 5px solid black;
-    height: 80vh;
+    height: 75vh;
     width: 95vw;
     margin:0px;
 
@@ -24,7 +24,12 @@ body {
 }
 
 .square {
-    border:0.1px dashed grey;
+    /* border:0.1px dashed grey; */
     margin:0px;
     flex-grow: 1;
 }
+
+.square:hover {
+    background-color: grey;
+    transition-duration: 0s ;
+    }
